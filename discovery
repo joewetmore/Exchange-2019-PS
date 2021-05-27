@@ -1,0 +1,21 @@
+Start-Transcript EnvironmentBackup.txt
+Get-OutlookProvider | Format-List
+Get-OutlookAnywhere | Format-List
+Get-ClientAccessServer | Format-List
+Get-ActiveSyncVirtualDirectory | Format-List
+Get-AutodiscoverVirtualDirectory | Format-List
+Get-EcpVirtualDirectory | Format-List
+Get-OabVirtualDirectory | Format-List
+Get-OwaVirtualDirectory | Format-List
+Get-PowerShellVirtualDirectory | Format-List
+Get-WebServicesVirtualDirectory | Format-List
+Get-SendConnector | Where-Object {$_.Enabled -eq $true} | Format-List
+Get-SendConnector | Where-Object {$_.Enabled -eq $true} | Get-ADPermission | Where-Object { $_.extendedrights -like '*routing*' } | fl identity, user, *rights
+Resolve-DnsName -Type A -Name mail.domain.com
+Resolve-DnsName -Type A -Name autodiscover.domain.com
+Resolve-DnsName -Type A -Name mail.domain.com -Server 8.8.8.8
+Resolve-DnsName -Type A -Name autodiscover.domain.com -Server 8.8.8.8
+Resolve-DnsName -Type MX -Name domain.com -Server 8.8.8.8
+Resolve-DnsName -Type TXT -Name domain.com -Server 8.8.8.8
+Resolve-DnsName -Type A -Name i-should-not-exist.domain.com -Server 8.8.8.8
+Stop-Transcript
