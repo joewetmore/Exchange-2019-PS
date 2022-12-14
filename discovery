@@ -17,5 +17,6 @@ Resolve-DnsName -Type A -Name mail.domain.com -Server 8.8.8.8
 Resolve-DnsName -Type A -Name autodiscover.domain.com -Server 8.8.8.8
 Resolve-DnsName -Type MX -Name domain.com -Server 8.8.8.8
 Resolve-DnsName -Type TXT -Name domain.com -Server 8.8.8.8
-Resolve-DnsName -Type A -Name i-should-not-exist.domain.com -Server 8.8.8.8
+Resolve-DnsName -Type A -Name i-should-not-exist.domain.com -Server 8.8.8.8Get-MailboxDatabaseCopyStatus * -Active | Select Name,Status,MailboxServer,ActivationPreference,ContentIndexState
+Get-MailboxDatabaseCopyStatus * -Active | Select Name,Status,MailboxServer,ActivationPreference,ContentIndexState
 Stop-Transcript
